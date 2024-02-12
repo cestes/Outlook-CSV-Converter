@@ -308,7 +308,10 @@ def main():
         attributes = (vars(newcontact))
         json_string = json_string + json.dumps(attributes) + ','
     prefix = '00000{"Books":[{"People":['
-    suffix = '],"bookName":"My Addresses"}],"OwnerBook":null,"OwnerTimeStamp":"\\/Date(1707586353983-0500)\\/"}' #needs two backslashes so Python will print one!
+    suffix = '],"bookName":"My Addresses"}],"OwnerBook":null,"OwnerFullName":null,"OwnerTimeStamp":"\\/Date(1707586353983-0500)\\/"}' #needs two backslashes so Python will print one!
+    
+    json_string = json_string.replace(': ',':')
+    json_string = json_string.replace(', ',',')
     
     output = prefix + json_string[:-1] + suffix #don't need that last comma
 
